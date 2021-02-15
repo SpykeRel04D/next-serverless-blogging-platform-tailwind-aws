@@ -1,5 +1,5 @@
-type Todo @model {
+type Post @model {
 	id: ID!
-	name: String!
-	description: String
+	title: String!
+	content: String!
 }
