@@ -231,3 +231,18 @@ $ amplify push --y
 ```
 
 ---
+
+## Eighth Step: Adding form to create posts
+
+We are gonna create a new page inside **pages** named `create-post.js`.
+The main idea of this page is to handle a form input that on submit should call the query `createPost` from the **GraphQL API**.
+
+After this, we are gonna create a new folder called **posts** inside pages (/pages/posts).
+Inside here, we have to create a dynamic route file: **[id].js**.
+This dynamic route file, is the main body of the posts. It's important to see that is handles the **getStaticPaths** and **getStaticProps**.
+
+In order to finish this step we have to add an author section inside our index.js
+
+Now, we can remove from our DB the previous created posts (since they don't have author), and we can test our current application.
+
+This step is available on the commit: [Create Posts]()

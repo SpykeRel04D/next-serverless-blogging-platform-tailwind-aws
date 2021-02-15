@@ -24,6 +24,9 @@ const Home = () => {
 				<Link key={index} href={`/posts/${post.id}`}>
 					<div className="cursor-pointer border-b border-gray-300 mt-8 pb-4">
 						<h2 className="text-xl font-semibold">{post.title}</h2>
+						<p className="text-gray-500 mt-2">
+							Author: {post.username}
+						</p>
 					</div>
 				</Link>
 			))}
