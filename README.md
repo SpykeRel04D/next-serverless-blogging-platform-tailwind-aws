@@ -245,4 +245,29 @@ In order to finish this step we have to add an author section inside our index.j
 
 Now, we can remove from our DB the previous created posts (since they don't have author), and we can test our current application.
 
-This step is available on the commit: [Create Posts]()
+This step is available on the commit: [Create Posts](https://github.com/SpykeRel04D/next-serverless-blogging-platform-tailwind-aws/tree/ae45fb605b864a5b449b8cd5fb1b4857fe02f70b)
+
+---
+
+## Nineth Step: Signed users should be able to edit their own posts
+
+First of all, we are gonna create a new page (/pages) called **my-posts.js**.
+
+The essence of this page is gonna be very similar to **index.js**, but filtering only user posts.
+Basically, we are gonna use `postsByUsername` instead `listPosts`.
+
+Then, on our **\_app.js**, we have to add a link to "My posts", but this Link has to be only available for signed users.
+To perform this, we are gonna use `Auth` and `Hub` from **aws-amplify**, combined with React Hooks.
+
+At this point, users can list their own posts, but now, they have to be able to edit and delete them.
+
+Like as we have done before with **/posts**, now we are gonna create a folder inside pages called **edit-post** (/pages/edit-post).
+Also, inside this folder we have to create a dynamic route file: **[id].js**, wich will have the logic to update the post content.
+
+Now, the user have to be able to access to this page, so we will add this into our **my-posts** page.
+To do this, we are gonna use a new mutation called `deletePost`.
+
+Finally, we want that the "posts" routes will be updated every certain amount of time.
+To do this, we have to add `revalidate: 120` (_two minutes_) inside **getStaticProps** of the Dyanamic routes files of /posts (/posts/[id].js)
+
+This step is available on the commit: [Edit Posts]()
