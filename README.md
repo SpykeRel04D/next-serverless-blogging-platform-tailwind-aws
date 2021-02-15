@@ -67,4 +67,14 @@ $ amplify init
 
 We can left all by default, except the **Source Directory Path:** that we should change it to `.` and the **Distribution Directory Path:** to `.next`.
 
+At this point, we are ready to add the **Amplify API** (selecting in our case `GraphQL`):
+
+```
+$ amplify add api
+```
+
+On the options, we select **API key** and **Single object with fields** (The other ones, we can just let them by default and select **NO** on the advanced settings).
+
+_Now we can found our **GraphQL** API inside /amplify/backend/api/NextBlog_
+
 ---
