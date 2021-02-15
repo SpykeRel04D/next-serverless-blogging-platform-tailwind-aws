@@ -163,4 +163,24 @@ Now, we can import this file everywhere were we need it. For example, we can sta
 ## Fifth Step: Print the previously created posts on screen
 
 At this, we just have to fetch the data using our created query **listPosts** of GraphQL API and render it.
-This step is available on the commit:
+This step is available on the commit: [Fetch and Render](https://github.com/SpykeRel04D/next-serverless-blogging-platform-tailwind-aws/commit/0fbf57a2a501a6a63f520ebcd26e77e858319fad)
+
+---
+
+## Sixth Step: Adding authentication (Amazon Cognito)
+
+We are gonna start by adding **auth** on the project:
+
+```
+$ amplify add auth
+```
+
+_This is gonna ask about what type of auth do we want to add (in this case, we gonna select default without Social)_
+
+```
+$ amplify push --y
+```
+
+With this installed, we are gonna create profile view into our pages directory.
+Also, we want to set into blue all the amplify UI elements (we can do this by modifying **globals.css**).
+Finally, we will add some routing into our **\_app.js** (A simple nav a global stying div for all the future rendered components).

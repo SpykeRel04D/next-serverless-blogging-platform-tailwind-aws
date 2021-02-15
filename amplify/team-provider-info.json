@@ -10,6 +10,11 @@
       "StackName": "amplify-nextserverlessbloggi-dev-142300",
       "StackId": "arn:aws:cloudformation:eu-west-2:513990107642:stack/amplify-nextserverlessbloggi-dev-142300/ef5f3520-6f90-11eb-bb93-0656702c3a6c",
       "AmplifyAppId": "doviylk0pkc7p"
+    },
+    "categories": {
+      "auth": {
+        "nextserverlessbloggi34c930aa": {}
+      }
     }
   }
 }
