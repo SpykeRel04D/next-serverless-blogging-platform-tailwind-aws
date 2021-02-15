@@ -157,3 +157,10 @@ Amplify.configure(config);
 ```
 
 Now, we can import this file everywhere were we need it. For example, we can start by importing it on our `_app.js` file.
+
+---
+
+## Fifth Step: Print the previously created posts on screen
+
+At this, we just have to fetch the data using our created query **listPosts** of GraphQL API and render it.
+This step is available on the commit:
