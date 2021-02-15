@@ -270,4 +270,6 @@ To do this, we are gonna use a new mutation called `deletePost`.
 Finally, we want that the "posts" routes will be updated every certain amount of time.
 To do this, we have to add `revalidate: 120` (_two minutes_) inside **getStaticProps** of the Dyanamic routes files of /posts (/posts/[id].js)
 
-This step is available on the commit: [Edit Posts]()
+This step is available on the commit: [Edit Posts](https://github.com/SpykeRel04D/next-serverless-blogging-platform-tailwind-aws/tree/d389a4c71f5b41a21d86f2d181a944f4ab50b0e9)
+
+---
