@@ -1,34 +1,45 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## First Step: Create project and add initial needed dependencies
 
-## Getting Started
+First, create the project:
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
+```
+$ npx create-next-app amplify-next
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then, we have to install AWS Amplify, AWS Amplify UI React, React Simple Markdown Editor, React Markdown and UUID:
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+```
+$ npm install aws-amplify @aws-amplify/ui-react react-simplemde-editor react-markdown uuid
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+---
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+We will use Tailwind:
 
-## Learn More
+```
+npm install tailwindcss@latest postcss@latest autoprefixer@latest @tailwindcss/typography
+```
 
-To learn more about Next.js, take a look at the following resources:
+And we have to create the configurations files for Tailwind:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+npx tailwindcss init -p
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Then, we update **tailwind.config.js** to add Tailwind `typography`:
 
-## Deploy on Vercel
+```
+plugins: [
+  require('@tailwindcss/typography')
+],
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Finally, replace the styles in **styles/globals.css**:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+---
