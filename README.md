@@ -111,16 +111,13 @@ And here, select **GraphQL** (This will open a UI of the GraphQL in our browser)
 
 To start, we are gonna create a couple mutations (for the second one, we can just create "My second post"):
 
-```js
+```graphql
 mutation createPost {
-  createPost(input: {
-    title: "My first post",
-    content: "Hello World!"
-  }) {
-    id
-    title
-    content
-  }
+	createPost(input: { title: "My first post", content: "Hello World!" }) {
+		id
+		title
+		content
+	}
 }
 ```
 
@@ -130,15 +127,15 @@ _If we have published successfully our Schema, we are gonna see that we have the
 
 After this, we can create a **query** to get a list of our posts:
 
-```js
+```graphql
 query listPosts {
-  listPosts {
-    items {
-      id
-      title
-      content
-    }
-  }
+	listPosts {
+		items {
+			id
+			title
+			content
+		}
+	}
 }
 ```
 
@@ -184,3 +181,53 @@ $ amplify push --y
 With this installed, we are gonna create profile view into our pages directory.
 Also, we want to set into blue all the amplify UI elements (we can do this by modifying **globals.css**).
 Finally, we will add some routing into our **\_app.js** (A simple nav a global stying div for all the future rendered components).
+
+Now we can SignUP and SingIN into our website and check the Profile Page of the user.
+This step is available on the commit: [Auth System](https://github.com/SpykeRel04D/next-serverless-blogging-platform-tailwind-aws/tree/b5af102766e622f8a9857b52604e06b7930f2857)
+
+---
+
+## Seventh Step: API Authorization (Authorize actions based on Signed user)
+
+Run an update of amplify api:
+
+```
+$ amplify update api
+```
+
+And we are gonna select **GraphQL** and **Update auth settings**. Then choose **API Key** and use some placeholder like: "public".
+Then, expire time for example **365**, but now select yes on **Configure auth types?** and select `Amazon Cognito User Pool`.
+
+After this, we have to update our GraphQL Scheme on /amplify/backend/api/NextBlog/schema.graphql.
+The main idea, is to add an Auth into our created `type Post @model`.
+
+After updating it, it should looks like this:
+
+```graphql
+type Post
+	@model
+	@key(
+		name: "postsByUsername"
+		fields: ["username"]
+		queryField: "postsByUsername"
+	)
+	@auth(
+		rules: [
+			{ allow: owner, ownerField: "username" }
+			{ allow: public, operations: [read] }
+		]
+	) {
+	id: ID!
+	title: String!
+	content: String!
+	username: String
+}
+```
+
+As always, after modify any that involves our Amplify enviroment, we have to push it:
+
+```
+$ amplify push --y
+```
+
+---
