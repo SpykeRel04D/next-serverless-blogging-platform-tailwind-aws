@@ -1,6 +1,6 @@
 {
     "identityPoolName": "nextserverlessbloggi34c930aa_identitypool_34c930aa",
-    "allowUnauthenticatedIdentities": false,
+    "allowUnauthenticatedIdentities": true,
     "resourceNameTruncated": "nextse34c930aa",
     "userPoolName": "nextserverlessbloggi34c930aa_userpool_34c930aa",
     "autoVerifiedAttributes": [

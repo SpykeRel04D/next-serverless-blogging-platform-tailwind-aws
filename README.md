@@ -273,3 +273,30 @@ To do this, we have to add `revalidate: 120` (_two minutes_) inside **getStaticP
 This step is available on the commit: [Edit Posts](https://github.com/SpykeRel04D/next-serverless-blogging-platform-tailwind-aws/tree/d389a4c71f5b41a21d86f2d181a944f4ab50b0e9)
 
 ---
+
+## Tenth Step: Use Amazon S3 to store images for our posts
+
+First thing we have to do, is configure amplify to work with **Amazon S3**.
+
+```bash
+$ amplify add storage
+```
+
+Following the instructions on screen, we will select **Content (Images, audio, video, etc.).
+Project name should be some ident like **blogimages** and bucket name accept the default one.
+Then select **Auth and guest users** (because we want that everybody can see the images) and then distribute the access levels (all for signed and only read for guests).
+Ending with this configuration, we will say **No\_\_ on adding Lambda Trigger to this S3 Bucket.
+
+Now, we want to add a new field on our GraphQL Schema: `coverImage: String`.
+
+As always, now we have to deploy this:
+
+```bash
+$ amplify push --y
+```
+
+At this point, we have to modify our UI in order to be able to set and show the images.
+
+This step is available on the commit: [Add Images]()
+
+---

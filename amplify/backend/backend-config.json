@@ -31,5 +31,11 @@
       "dependsOn": [],
       "customAuth": false
     }
+  },
+  "storage": {
+    "blogimages": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation"
+    }
   }
 }

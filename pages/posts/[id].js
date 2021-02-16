@@ -1,9 +1,23 @@
 import { API, Storage } from "aws-amplify";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import ReactMarkdown from "react-markdown";
 import { listPosts, getPost } from "../../graphql/queries";
 
 export default function Post({ post }) {
+	const [coverImage, setCoverImage] = useState(null);
+
+	useEffect(() => {
+		updateCoverImage();
+	}, []);
+
+	async function updateCoverImage() {
+		if (post.coverImage) {
+			const imageKey = await Storage.get(post.coverImage);
+			setCoverImage(imageKey);
+		}
+	}
+
 	const router = useRouter();
 	if (router.isFallback) {
 		return <div>Loading...</div>;
@@ -14,6 +28,7 @@ export default function Post({ post }) {
 			<h1 className="text-5xl mt-4 font-semibold tracking-wide">
 				{post.title}
 			</h1>
+			{coverImage && <img src={coverImage} className="mt-4" />}
 			<p className="text-sm font-light my-4">by {post.username}</p>
 			<div className="mt-8">
 				<ReactMarkdown className="prose" children={post.content} />
@@ -44,7 +59,7 @@ export async function getStaticProps({ params }) {
 	return {
 		props: {
 			post: postData.data.getPost,
+			revalidate: 120,
 		},
-		revalidate: 120,
 	};
 }
