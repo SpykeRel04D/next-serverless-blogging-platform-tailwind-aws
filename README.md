@@ -297,6 +297,24 @@ $ amplify push --y
 
 At this point, we have to modify our UI in order to be able to set and show the images.
 
-This step is available on the commit: [Add Images]()
+This step is available on the commit: [Add Images](https://github.com/SpykeRel04D/next-serverless-blogging-platform-tailwind-aws/tree/02b1335c9993f7248fa9468d8c2122bc0d52fcc8)
 
 ---
+
+## Extra Step: Deploy this to AWS CDN
+
+In the future this should be available on Amplify CLI, but now, we can do this by using **serverless** framework.
+
+First, we have to create a file named **serverless.yml** in the project root (/serverless.yml).
+This file will contain the following code:
+
+```yml
+nextamplified:
+    component: "@sls-next/serverless-component@1.18.0"
+```
+
+To deploy this to AWS, we have to run:
+
+```bash
+npx serverless
+```
